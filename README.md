@@ -1,4 +1,4 @@
-# Dharma Reddy Dhamodhar - Professional Portfolio
+# Dhamodhar Reddy Atla - Professional Portfolio
 
 ## Clinical SAS Programmer | Healthcare Data Analyst | Data Science Specialist
 
