@@ -200,6 +200,62 @@
                 grid-template-columns: 1fr;
             }
         }
+
+                /* Dark Mode Variables */
+        :root { 
+            --bg: #ffffff; 
+            --text: #111827; 
+        }
+        .dark { 
+            --bg: #0f172a; 
+            --text: #e2e8f0; 
+        }
+        body { 
+            background: var(--bg) !important; 
+            color: var(--text) !important; 
+            transition: background .3s, color .3s; 
+        }
+        
+        /* 3D Tilt Card Effects */
+        .project-card {
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+        }
+        .project-card:hover {
+            transform: perspective(1000px) rotateY(8deg) rotateX(4deg) scale(1.05);
+        }
+        
+        /* Audit-Trail Glow Buttons */
+        .btn-audit {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #0ea5e9;
+            color: #0ea5e9;
+            background: transparent;
+            transition: all .3s;
+        }
+        .btn-audit:hover {
+            color: #fff;
+            background: #0ea5e9;
+            box-shadow: 0 0 20px rgba(14,165,233,.6);
+        }
+        .btn-audit::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+            transition: left .6s;
+        }
+        .btn-audit:hover::before { 
+            left: 100%; 
+        }
+        
+        /* Dark mode gradient override */
+        .dark header {
+            background: linear-gradient(-45deg, #0a1a2a, #1e3a8a, #312e81, #1e3a8a) !important;
+            background-size: 400% 400% !important;
+        }
     </style>
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
