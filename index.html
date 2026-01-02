@@ -201,6 +201,7 @@
             }
         }
     </style>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body>
     <div class="container">
@@ -210,6 +211,16 @@
             <p>Transforming healthcare data into actionable insights through clinical programming, analytics, and regulatory-compliant solutions</p>
             <div class="contact-links">
                 <a href="mailto:dhamodhar1142@gmail.com">📧 Email</a>
+                            <h1 id="headline" class="text-4xl md:text-6xl font-bold mb-4"></h1>
+            <script>
+              new Typed('#headline', {
+                strings: ['Clinical SAS Programmer', 'Healthcare Data Analyst', 'CDISC Compliance Specialist'],
+                typeSpeed: 60,
+                backSpeed: 40,
+                loop: true,
+                backDelay: 2200
+              });
+            </script>
                 <a href="https://linkedin.com/in/dhamodhar1142" target="_blank">💼 LinkedIn</a>
                 <a href="https://github.com/dhamodhar1142" target="_blank">💻 GitHub</a>
             </div>
@@ -238,7 +249,7 @@
                         <span class="tech-tag">ADaM</span>
                     </div>
                     <p style="margin-top: 15px; color: #667eea; font-weight: bold;">✅ 100% CDISC compliance | 40% faster programming</p>
-                    <a href="https://github.com/dhamodhar1142/sdtm-adam-pipeline" target="_blank" class="project-link">View Project →</a>
+                    <a href="https://github.com/dhamodhar1142/sdtm-adam-pipeline" target="_blank" class="project-link btn-audit">View Project →</a>
                 </div>
 
                 <div class="project-card">
@@ -251,7 +262,7 @@
                         <span class="tech-tag">FastAPI</span>
                     </div>
                     <p style="margin-top: 15px; color: #667eea; font-weight: bold;">✅ 99.2% data quality | 85% time reduction</p>
-                    <a href="https://github.com/dhamodhar1142/healthcare-qc-framework" target="_blank" class="project-link">View Project →</a>
+                    <a href="https://github.com/dhamodhar1142/healthcare-qc-framework" target="_blank" class="project-link btn-audit">View Project →</a>
                 </div>
 
                 <div class="project-card">
@@ -264,7 +275,7 @@
                         <span class="tech-tag">PostgreSQL</span>
                     </div>
                     <p style="margin-top: 15px; color: #667eea; font-weight: bold;">✅ 18% ↓ readmissions | $2.3M savings identified</p>
-                    <a href="https://github.com/dhamodhar1142/healthcare-analytics-dashboard" target="_blank" class="project-link">View Project →</a>
+                    <a href="https://github.com/dhamodhar1142/healthcare-analytics-dashboard" target="_blank" class="project-link btn-audit">View Project →</a>
                 </div>
             </div>
         </section>
@@ -339,5 +350,38 @@
             <p style="margin-top: 10px;">Authorized to work in the United States (OPT/U Visa pending)</p>
         </footer>
     </div>
+
+    <!-- Dark Mode Toggle and Scripts -->
+    <button id="theme-toggle" class="fixed top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-xl z-50">🌗</button>
+    
+    <script>
+      // Dark mode toggle
+      const btn = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      btn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+      });
+      if (localStorage.theme === 'dark') html.classList.add('dark');
+      
+      // Stat counters (if stats exist)
+      const counters = document.querySelectorAll('.stat');
+      if (counters.length > 0) {
+        const animate = el => {
+          const target = +el.getAttribute('data-target');
+          const inc = target / 100;
+          const update = () => {
+            const cur = +el.innerText;
+            if (cur < target) { el.innerText = (cur + inc).toFixed(1); setTimeout(update, 20); }
+            else el.innerText = target;
+          };
+          update();
+        };
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => e.isIntersecting && animate(e.target));
+        }, {threshold: .5});
+        counters.forEach(c => io.observe(c));
+      }
+    </script>
 </body>
 </html>
